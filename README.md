@@ -2,7 +2,7 @@ DiskFlow is an interactive, browser-based educational project designed to help s
 
 This project bridges that gap by transforming abstract disk scheduling concepts into dynamic, visual, and interactive simulations. DiskFlow allows users to input disk request sequences and initial head positions, select different scheduling algorithms, and instantly observe how the disk head moves across tracks in both 2D and 3D environments.
 
-🎯 Motivation Behind DiskFlow
+🎯 MOTIVATION BEHIND DISKFLOW-
 
 Disk scheduling plays a critical role in determining how efficiently a system accesses data from secondary storage. The total seek time of the disk head directly affects system throughput and performance. Poor scheduling strategies can result in excessive head movement, long delays, and even starvation of requests, while optimized algorithms significantly improve system efficiency.
 
@@ -16,7 +16,7 @@ How head movement direction affects total seek time
 
 Traditional teaching methods fail to demonstrate the dynamic behavior of disk head traversal. DiskFlow was created to solve this problem by providing a visual, hands-on learning experience.
 
-💡 Key Idea and Approach
+💡KEY IDEA AND APPROACH-
 
 DiskFlow is designed as a web-based application, ensuring easy access without installation or configuration. The entire system runs directly in a modern web browser and focuses on simplicity, clarity, and interactivity.
 
@@ -32,7 +32,7 @@ Performance metrics are calculated and compared
 
 This approach helps users build strong intuition and conceptual clarity.
 
-⚙️ Disk Scheduling Algorithms Implemented
+⚙️ DISK SCHEDULING ALGORTIHM IMPLEMENTED-
 
 DiskFlow currently supports the following classical disk scheduling algorithms:
 
@@ -56,80 +56,8 @@ Head movement sequence
 
 Total seek time
 
-🎨 Visualization Features
-🔹 2D Visualization
 
-Displays disk head movement along a linear track
-
-Animates request servicing step-by-step
-
-Helps users visually follow how each algorithm works
-
-🔹 3D Visualization
-
-Built using Three.js
-
-Represents disk tracks and head movement in a circular layout
-
-Supports zooming, rotation, and exploration
-
-Enhances spatial understanding of disk traversal
-
-These visualizations turn abstract numbers into real movement patterns that are easy to understand.
-
-📊 Performance Comparison Dashboard
-
-DiskFlow includes a comparison dashboard that allows users to evaluate multiple algorithms side by side. Using Chart.js, the dashboard visualizes:
-
-Total seek time
-
-Request servicing order
-
-Algorithm efficiency
-
-This feature helps students understand why one algorithm performs better than another under specific workloads.
-
-🧩 System Architecture
-
-The system follows a modular architecture:
-
-User Input Layer – accepts requests and head position
-
-Algorithm Engine – executes scheduling logic
-
-Visualization Layer – renders 2D and 3D animations
-
-Comparison Dashboard – displays metrics
-
-User Interface – responsive frontend using Bootstrap
-
-This clean separation makes the project easy to extend and maintain.
-
-🛠️ Technologies Used
-
-HTML, CSS, JavaScript – core development
-
-Bootstrap – responsive UI design
-
-Three.js – 3D visualization
-
-Chart.js – performance charts
-
-Canvas / SVG – 2D animations
-
-📦 Project Outcomes
-
-Fully functional disk scheduling visualizer
-
-Interactive 2D and immersive 3D simulations
-
-Side-by-side algorithm comparison
-
-Educational tool for students and faculty
-
-Modern, engaging alternative to textbook learning
-
-🎓 Educational Impact
+🎓 EDUCATIONAL IMPACT-
 
 DiskFlow enhances learning by:
 
