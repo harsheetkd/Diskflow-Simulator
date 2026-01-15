@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Disk Scheduling Simulator — Animated</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="disk-info">
+        <div class="disk-description">
+          <h2>What is Disk Scheduling?</h2>
+          <p>Disk scheduling is a mechanism that determines the order in which disk I/O requests are serviced. The disk head moves across cylinders to read/write data, and efficient scheduling algorithms minimize the total head movement, reducing seek time and improving system performance.</p>
+          
+          <h3>Key Components:</h3>
+          <ul>
+            <li><strong>Disk Head:</strong> The read/write mechanism that moves across the disk surface</li>
+            <li><strong>Cylinders:</strong> Concentric circles on the disk where data is stored (0-199 in this simulation)</li>
+            <li><strong>Seek Time:</strong> Time taken to move the head from one cylinder to another</li>
+          </ul>
+
+          <h3>Available Algorithms:</h3>
+          <ul>
+            <li><strong>FCFS (First Come First Serve):</strong> Requests are served in the order they arrive</li>
+            <li><strong>SSTF (Shortest Seek Time First):</strong> Serves the closest cylinder request first</li>
+            <li><strong>SCAN:</strong> Head moves from one end to other, serving requests along the way</li>
+            <li><strong>CSCAN (Circular SCAN):</strong> Similar to SCAN but moves in one direction only</li>
+          </ul>
+        </div>
+        <div class="disk-diagram">
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Disk Platter -->
+            <circle cx="200" cy="150" r="120" fill="#1a2234" stroke="#06b6d4" stroke-width="2"/>
+            
+            <!-- Cylinders (Tracks) -->
+            <circle cx="200" cy="150" r="100" fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.5"/>
+            <circle cx="200" cy="150" r="80" fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.5"/>
+            <circle cx="200" cy="150" r="60" fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.5"/>
+            <circle cx="200" cy="150" r="40" fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.5"/>
+            
+            <!-- Disk Head -->
+            <line x1="80" y1="150" x2="320" y2="150" stroke="#f97316" stroke-width="2"/>
+            <circle cx="200" cy="150" r="5" fill="#f97316"/>
+            
+            <!-- Labels -->
+            <text x="200" y="50" fill="#e6eef9" text-anchor="middle">Disk Platter</text>
+            <text x="320" y="140" fill="#e6eef9">Read/Write Head</text>
+            <text x="200" y="200" fill="#e6eef9" text-anchor="middle">Cylinders</text>
+          </svg>
+          <p class="diagram-caption">Interactive disk components diagram showing platter, head, and cylinders</p>
+        </div>
+      </div>
+
+      <header class="hero">
+        <div class="hero-inner">
+          <h1>Disk Scheduling Simulator</h1>
+          <p class="tag"></p>
+        </div>
+      </header>
+
+      <main class="main-grid">
+        <section class="panel controls">
+          <h2>Simulation Controls</h2>
+          <div class="field">
+            <label>Requests (comma separated)</label>
+            <input id="requests" value="82,170,43,140,24,16,190" />
+          </div>
+          <div class="row">
+            <div class="field">
+              <label>Head position</label>
+              <input id="head" value="50" />
+            </div>
+            <div class="field">
+              <label>Disk max index</label>
+              <input id="disk_size" value="199" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Algorithm</label>
+            <select id="algorithm">
+              <option>FCFS</option>
+              <option>SSTF</option>
+              <option>SCAN</option>
+              <option>CSCAN</option>
+            </select>
+          </div>
+
+          <div class="controls-row">
+            <button id="run" class="btn primary">Run</button>
+            <button id="play" class="btn">Play</button>
+            <button id="pause" class="btn">Pause</button>
+            <button id="reset" class="btn">Reset</button>
+          </div>
+
+          <div class="field">
+            <label>Speed</label>
+            <input id="speed" type="range" min="0.2" max="3" step="0.1" value="1" />
+          </div>
+
+          <div class="stats">
+            <div><strong>Algorithm:</strong> <span id="stat-alg">—</span></div>
+            <div><strong>Total distance:</strong> <span id="stat-dist">—</span></div>
+            <div><strong>Total seek:</strong> <span id="stat-total-seek">—</span></div>
+            <div><strong>Avg seek:</strong> <span id="stat-avg-seek">—</span></div>
+            <div><strong>Max seek:</strong> <span id="stat-max-seek">—</span></div>
+            <div><strong>Total requests:</strong> <span id="stat-total-req">—</span></div>
+            <div><strong>Steps:</strong> <span id="stat-steps">—</span></div>
+          </div>
+          <div class="recommendation" style="margin-top:12px;">
+            <h3>ML Recommendation</h3>
+            <div id="ml-recommend">Model not loaded</div>
+          </div>
+        </section>
+
+        <section class="panel viz">
+          <h2>Animated Visualization</h2>
+          <div class="viz-canvas-wrap">
+            <canvas id="track" width="1000" height="140"></canvas>
+          </div>
+          <div class="legend" id="legend"></div>
+          <div class="chart-wrap" style="margin-top:12px">
+            <canvas id="chart" width="1000" height="180"></canvas>
+          </div>
+        </section>
+      </main>
+
+      <footer class="foot"></footer>
+
+    </div>
+    <script src="/static/script.js"></script>
+  </body>
+</html>
