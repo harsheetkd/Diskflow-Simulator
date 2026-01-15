@@ -1,6 +1,3 @@
-# Diskflow-Simulator
-DiskFlow is an interactive, browser-based educational tool for understanding disk scheduling algorithms in Operating Systems. It replaces static diagrams with real-time 2D and 3D visualizations, allowing users to input requests, select algorithms, and observe disk head movement and performance comparisons dynamically.
-Disk Scheduling Simulator - Simplified
 This simplified project bundles a Flask backend that implements disk scheduling algorithms (FCFS, SSTF, SCAN, CSCAN) and serves a minimal HTML/CSS/JS frontend.
 
 Files
