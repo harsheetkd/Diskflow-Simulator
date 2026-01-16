@@ -1,0 +1,3 @@
+Flask>=2.0
+
+# Optional: to use the launcher you only need Python's stdlib (webbrowser, subprocess).
